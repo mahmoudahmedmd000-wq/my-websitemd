@@ -15,7 +15,7 @@
     --border: rgba(255,255,255,0.09);
 }
 /* 02 - RESET */
-*, *::before, *::after {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -577,9 +577,8 @@ ul {
     .hero-image {
         width: 100%;
     }
-    /* تعديل ليكونوا كارتين بجانب بعض في الشاشات المتوسطة بدلاً من كارت طولي واحد أو تلخبطة */
     .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr 1fr;
     }
     .nav-links {
         gap: 15px;
@@ -663,9 +662,8 @@ ul {
     .about-heading h3 {
         font-size: 30px;
     }
-    /* في الموبايل الصغير جداً تخليهم تحت بعض أو كارتين جنب بعض حسب رغبتك، هنا خليناها كارتين جنب بعض لتجنب الشكل الطولي الغريب */
     .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr 1fr;
         gap: 12px;
     }
     .skill-card {
@@ -710,148 +708,4 @@ ul {
         flex-direction: column;
         gap: 15px;
     }
-}
-
-/* =====================================
-   15 - CUSTOM SPLASH SCREEN (CIRCLE & SLIDE ANIMATION)
-===================================== */
-#intro-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: radial-gradient(circle at center, #0a1128 0%, var(--bg) 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    overflow: hidden;
-    transition: opacity 0.8s ease-in-out;
-}
-
-.intro-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
-    position: relative;
-    width: 80%;
-    max-width: 900px;
-    transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
-}
-
-.intro-profile-wrapper {
-    position: relative;
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    border: 2px solid var(--blue);
-    background: var(--surface);
-    cursor: pointer;
-    overflow: hidden;
-    box-shadow: 0 0 40px var(--blue-glow);
-    flex-shrink: 0;
-    transition: transform 0.5s ease;
-}
-
-.intro-profile-wrapper:hover {
-    transform: scale(1.08);
-    border-color: var(--blue-light);
-}
-
-.intro-circle-glow {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: var(--blue);
-    filter: blur(50px);
-    opacity: 0.4;
-}
-
-.intro-circle-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: relative;
-    z-index: 2;
-}
-
-.intro-text-box {
-    text-align: left;
-    opacity: 0;
-    transform: translateX(-30px);
-    transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;
-    pointer-events: none;
-}
-
-.intro-subtitle {
-    color: var(--blue-light);
-    font-size: 11px;
-    letter-spacing: 4px;
-    font-weight: 700;
-}
-
-.intro-main-title {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 42px;
-    color: var(--white);
-    margin: 10px 0;
-    letter-spacing: -2px;
-}
-
-.intro-desc {
-    color: var(--gray);
-    font-size: 14px;
-    line-height: 1.6;
-    max-width: 400px;
-    margin-bottom: 15px;
-}
-
-.click-hint {
-    display: inline-block;
-    color: var(--blue);
-    font-size: 11px;
-    letter-spacing: 3px;
-    font-weight: 700;
-    text-shadow: 0 0 10px var(--blue-glow);
-    animation: pulseHint 1.5s infinite alternate;
-}
-
-@keyframes pulseHint {
-    from { opacity: 0.5; }
-    to { opacity: 1; }
-}
-
-.intro-container.shift-layout .intro-text-box {
-    opacity: 1;
-    transform: translateX(0);
-    pointer-events: auto;
-}
-
-.intro-container.exit-animation .intro-profile-wrapper {
-    transform: translateX(150vw) rotate(45deg) scale(1.2);
-    transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
-}
-
-.intro-container.exit-animation .intro-text-box {
-    transform: translateX(-100vw);
-    opacity: 0;
-    transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.5s ease;
-}
-
-.fade-out {
-    opacity: 0;
-    pointer-events: none;
-}
-
-#main-content {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;
-}
-
-.show-content {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
 }
