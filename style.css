@@ -15,7 +15,7 @@
     --border: rgba(255,255,255,0.09);
 }
 /* 02 - RESET */
-* {
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -577,8 +577,9 @@ ul {
     .hero-image {
         width: 100%;
     }
+    /* تعديل ليكونوا كارتين بجانب بعض في الشاشات المتوسطة بدلاً من كارت طولي واحد أو تلخبطة */
     .skills-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
     .nav-links {
         gap: 15px;
@@ -662,8 +663,9 @@ ul {
     .about-heading h3 {
         font-size: 30px;
     }
+    /* في الموبايل الصغير جداً تخليهم تحت بعض أو كارتين جنب بعض حسب رغبتك، هنا خليناها كارتين جنب بعض لتجنب الشكل الطولي الغريب */
     .skills-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 12px;
     }
     .skill-card {
@@ -739,7 +741,6 @@ ul {
     transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
-/* تصميم الصورة الدائرية (Profile 2) في البداية في النص */
 .intro-profile-wrapper {
     position: relative;
     width: 220px;
@@ -776,7 +777,6 @@ ul {
     z-index: 2;
 }
 
-/* صندوق الكلام الكلاسيكي */
 .intro-text-box {
     text-align: left;
     opacity: 0;
@@ -823,14 +823,12 @@ ul {
     to { opacity: 1; }
 }
 
-/* حركة الترحيل: بعد تحميل الصفحة الصورة تتحرك والكلام يظهر */
 .intro-container.shift-layout .intro-text-box {
     opacity: 1;
     transform: translateX(0);
     pointer-events: auto;
 }
 
-/* حركة الخروج عند النقر: الصورة تطير يمين والكلام يطير شمال */
 .intro-container.exit-animation .intro-profile-wrapper {
     transform: translateX(150vw) rotate(45deg) scale(1.2);
     transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
