@@ -190,8 +190,6 @@ and responsive designs.
 </p>
 <span class="skill-status">
 CURRENTLY LEARNING
-</span>
-</article>
 <article class="skill-card">
 <span class="skill-icon">03</span>
 <h3>JavaScript</h3>
@@ -306,11 +304,30 @@ THE JOURNEY HAS JUST BEGUN.
                 </p>
                 <div class="contact-buttons" style="display: flex; gap: 15px; flex-wrap: wrap;">
                     <!-- زر الإيميل المباشر عبر المتصفح -->
-<a href="https://mail.google.com/mail/?view=cm&fs=1&to=mahmoudahmedmd000@gmail.com"
-   target="_blank"
-   rel="noopener noreferrer"
+<a href="googlegmail://" 
+   onclick="openGmail(event, 'YOUR_EMAIL@example.com')" 
    class="primary-button">
     Send Me An Email ↗
+</a>
+
+<script>
+function openGmail(event, email) {
+    event.preventDefault();
+    
+    // رابط فتح التطبيق على الموبايل
+    var appUrl = "googlegmail:///co?to=" + email;
+    // رابط المتصفح العادي (Gmail Web)
+    var webUrl = "https://mail.google.com/mail/?view=cm&fs=1&to=" + email;
+    
+    // محاولة فتح التطبيق
+    window.location.href = appUrl;
+    
+    // لو التطبيق مش موجود ومشغّال على الموبايل، هيحول للمتصفح بعد نص ثانية
+    setTimeout(function() {
+        window.location.href = webUrl;
+    }, 500);
+}
+</script>
 </a>
                     </a>
                     <!-- WhatsApp Button -->
