@@ -303,40 +303,21 @@ THE JOURNEY HAS JUST BEGUN.
                     to reach out.
                 </p>
                 <div class="contact-buttons" style="display: flex; gap: 15px; flex-wrap: wrap;">
-                    <!-- زر الإيميل المباشر عبر المتصفح -->
-<a href="googlegmail://" 
-   onclick="openGmail(event, 'YOUR_EMAIL@example.com')" 
-   class="primary-button">
-    Send Me An Email ↗
-</a>
 
-<script>
-function openGmail(event, email) {
-    event.preventDefault();
-    
-    // رابط فتح التطبيق على الموبايل
-    var appUrl = "googlegmail:///co?to=" + email;
-    // رابط المتصفح العادي (Gmail Web)
-    var webUrl = "https://mail.google.com/mail/?view=cm&fs=1&to=" + email;
-    
-    // محاولة فتح التطبيق
-    window.location.href = appUrl;
-    
-    // لو التطبيق مش موجود ومشغّال على الموبايل، هيحول للمتصفح بعد نص ثانية
-    setTimeout(function() {
-        window.location.href = webUrl;
-    }, 500);
-}
-</script>
-</a>
-                    </a>
-                    <!-- WhatsApp Button -->
-                    <a href="https://wa.me/201100388815" 
-                       target="_blank" 
-                       rel="noopener noreferrer" 
-                       class="secondary-button">
-                        Chat On WhatsApp ↗
-                    </a>
+    <!-- زر الإيميل -->
+    <a href="mailto:YOUR_EMAIL@example.com" class="primary-button">
+        Send Me An Email ↗
+    </a>
+
+    <!-- زر الواتساب -->
+    <a href="https://wa.me/201100388815" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="secondary-button">
+        Chat On WhatsApp ↗
+    </a>
+
+</div>
                 </div>
             </div>
             <div class="contact-decoration">
